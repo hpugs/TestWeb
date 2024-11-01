@@ -1,0 +1,47 @@
+plugins {
+    id 'org.springframework.boot' version '2.6.13'
+    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+    id 'java'
+}
+
+group = 'com.hpugs'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+ext {
+    fastjsonVersion = '1.2.70'
+    rocketmqClientJavaVersion = '5.0.5'
+}
+
+repositories {
+    maven {
+        url 'https://maven.aliyun.com/repository/public'
+    }
+    maven {
+        credentials {
+            username '5f87b5f7cd2214ba0eac47eb'
+            password 't2fr3sx7yIE3'
+        }
+        url 'https://packages.aliyun.com/maven/repository/2041990-release-QcCqWw/'
+    }
+    maven {
+        credentials {
+            username '5f87b5f7cd2214ba0eac47eb'
+            password 't2fr3sx7yIE3'
+        }
+        url 'https://packages.aliyun.com/maven/repository/2041990-snapshot-j7bhHR/'
+    }
+    mavenLocal()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    compile "com.alibaba:fastjson:${fastjsonVersion}"
+    compile "org.apache.rocketmq:rocketmq-client-java:${rocketmqClientJavaVersion}"
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
