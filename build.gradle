@@ -11,6 +11,7 @@ sourceCompatibility = '1.8'
 ext {
     fastjsonVersion = '1.2.70'
     rocketmqClientJavaVersion = '5.0.5'
+    mongoDbVersion = '4.5.0'
 }
 
 repositories {
@@ -40,6 +41,12 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     compile "com.alibaba:fastjson:${fastjsonVersion}"
     compile "org.apache.rocketmq:rocketmq-client-java:${rocketmqClientJavaVersion}"
+
+    compile "org.mongodb:mongodb-driver-sync:${mongoDbVersion}"
+    compile "org.mongodb:mongodb-driver-core:${mongoDbVersion}"
+    compile "org.mongodb:bson:${mongoDbVersion}"
+    // https://mvnrepository.com/artifact/commons-logging/commons-logging
+    implementation 'commons-logging:commons-logging:1.2'
 }
 
 tasks.named('test') {
