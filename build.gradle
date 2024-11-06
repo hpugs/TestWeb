@@ -11,7 +11,7 @@ sourceCompatibility = '1.8'
 ext {
     fastjsonVersion = '1.2.70'
     rocketmqClientJavaVersion = '5.0.5'
-    mongoDbVersion = '4.5.0'
+    mongoDbVersion = '4.2.2'
 }
 
 repositories {
