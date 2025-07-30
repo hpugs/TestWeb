@@ -1,8 +1,11 @@
 package com.hpugs.testweb;
 
+import com.hpugs.testweb.excel.ExcelService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -24,6 +27,9 @@ import javax.servlet.http.HttpSession;
  */
 @RestController
 public class UserController {
+
+    @Resource
+    private ExcelService excelService;
 
     @GetMapping("/login")
     public String login(){
@@ -55,6 +61,11 @@ public class UserController {
         session.removeAttribute("env");
         System.out.println(result);
         return result;
+    }
+
+    @GetMapping("/downloadFile")
+    public void downloadFile(@RequestParam(name = "fileType") Integer fileType, HttpServletResponse response){
+        excelService.downloadFileTemplate(fileType, response);
     }
 
 }

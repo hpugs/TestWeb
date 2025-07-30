@@ -39,14 +39,19 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-aop'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    compile "com.alibaba:fastjson:${fastjsonVersion}"
-    compile "org.apache.rocketmq:rocketmq-client-java:${rocketmqClientJavaVersion}"
+    implementation "com.alibaba:fastjson:${fastjsonVersion}"
+    implementation "org.apache.rocketmq:rocketmq-client-java:${rocketmqClientJavaVersion}"
 
-    compile "org.mongodb:mongodb-driver-sync:${mongoDbVersion}"
-    compile "org.mongodb:mongodb-driver-core:${mongoDbVersion}"
-    compile "org.mongodb:bson:${mongoDbVersion}"
+    implementation "org.mongodb:mongodb-driver-sync:${mongoDbVersion}"
+    implementation "org.mongodb:mongodb-driver-core:${mongoDbVersion}"
+    implementation "org.mongodb:bson:${mongoDbVersion}"
     // https://mvnrepository.com/artifact/commons-logging/commons-logging
     implementation 'commons-logging:commons-logging:1.2'
+
+    // alibaba easyexcel
+    implementation("com.alibaba:easyexcel:2.2.10")
+
+    implementation("org.projectlombok:lombok:1.18.22")
 }
 
 tasks.named('test') {
